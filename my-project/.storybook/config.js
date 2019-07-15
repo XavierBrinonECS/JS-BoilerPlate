@@ -5,6 +5,15 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import { themes } from '@storybook/theming';
 
+
+addDecorator(
+  withInfo({
+    inline: true,
+  }),
+);
+addDecorator(withKnobs);
+addDecorator(withA11y);
+
 const newViewports = {
   kindleFire2: {
     name: 'Kindle Fire 2',
@@ -24,22 +33,9 @@ const newViewports = {
 
 addParameters({
   viewport: { viewports: newViewports },
-});
-
-addParameters({
   options: {
-    theme: themes.dark,
+    // theme: themes.dark,
   },
-});
-
-addDecorator(
-  withInfo({
-    inline: true,
-  }),
-);
-addDecorator(withKnobs);
-addDecorator(withA11y);
-addParameters({
   backgrounds: [
     { name: 'white', value: '#ffffff'},
     { name: 'twitter', value: '#00aced' },
@@ -50,6 +46,7 @@ addParameters({
 function loadStories() {
   require('../src/stories/Sample.stories');
   /** add new stories below */
+	require('../src/stories/MyComp.stories')
 
 }
 
