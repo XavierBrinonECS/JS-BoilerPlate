@@ -5,7 +5,7 @@
   "homepage": "./",
   "husky": {
     "hooks": {
-      "-commit": "pretty-quick --staged && CI=true npm run test"
+      "pre-commit": "pretty-quick --staged && CI=true npm run test"
     }
   },
   "prettier": {
